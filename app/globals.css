@@ -226,7 +226,7 @@ h1 {
   color: #9f8b65;
   background: linear-gradient(180deg, #f6f1e8, #dcd3c5);
   box-shadow: 0 -8px 28px rgba(230, 188, 104, 0.35);
-  animation: letterRise 7s 1.3s ease-in-out infinite;
+  animation: letterRise 7s 0.4s ease-in-out infinite;
 }
 
 .envelopeLetter span {
