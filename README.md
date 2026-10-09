@@ -34,3 +34,19 @@ Depois, acesse o endereço exibido pelo terminal.
 ---
 
 Projeto de Felipe Araujo.
+
+## Compartilhar a arte do convite
+
+A arte está em `public/convite-isabella.jpg`. O botão Compartilhar convite abre o compartilhamento do aparelho quando o navegador permite enviar arquivos. A pessoa escolhe o WhatsApp e o destinatário. Baixar convite permite salvar a imagem e enviá-la manualmente. Cancelar o compartilhamento não confirma a presença nem envia uma mensagem.
+
+### Ocultar o compartilhamento com foto
+
+No arquivo `app/invitation-config.ts`, altere:
+
+```ts
+export const SHOW_PHOTO_SHARING = false;
+```
+
+Salve, faça commit e envie para a branch de produção. Isso oculta Compartilhar convite e Baixar convite nas duas áreas e evita carregar a arte. Os botões Confirmar presença continuam funcionando. Para reativar, use `true`.
+
+Ocultar os botões não apaga a imagem do site. Para retirar também o arquivo publicado, remova `public/convite-isabella.jpg` e publique a alteração. Versões antigas podem continuar no histórico do Git.

@@ -633,3 +633,10 @@ h1 {
     transition-duration: 0.01ms !important;
   }
 }
+
+.shareInvitation { margin-top: 1rem; }
+.shareButton { cursor: pointer; max-width: 100%; min-width: 0; width: min(100%, 20rem); }
+.shareButton:disabled { opacity: 0.6; cursor: wait; }
+.downloadInvitation { display: block; margin-top: 0.85rem; font-family: Arial, sans-serif; font-size: 0.75rem; color: var(--silver); text-underline-offset: 3px; }
+.shareInvitation .shareStatus { margin: 0.7rem auto 0; font-family: Arial, sans-serif; font-size: 0.75rem; line-height: 1.5; color: var(--silver); }
+.shareStatus:empty { display: none; }

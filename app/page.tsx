@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { SHOW_PHOTO_SHARING } from "./invitation-config";
 
 const EVENT_DATE = new Date("2026-11-15T15:00:00-03:00").getTime();
 
@@ -49,6 +50,72 @@ function Countdown() {
           <span className="countdownLabel">{label}</span>
         </div>
       ))}
+    </div>
+  );
+}
+
+
+function ShareInvitation() {
+  const [file, setFile] = useState<File | null>(null);
+  const [status, setStatus] = useState("");
+  const [sharing, setSharing] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/convite-isabella.jpg", { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("Imagem indisponível");
+        return response.blob();
+      })
+      .then((blob) => {
+        setFile(new File([blob], "convite-isabella.jpg", { type: "image/jpeg" }));
+      })
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          setStatus("Use Baixar convite para salvar a imagem e enviar pelo WhatsApp.");
+        }
+      });
+    return () => controller.abort();
+  }, []);
+
+  async function shareInvitation() {
+    if (sharing) return;
+    if (!file || !navigator.share || !navigator.canShare?.({ files: [file] })) {
+      setStatus("Baixe a imagem abaixo e envie pelo WhatsApp.");
+      return;
+    }
+    setSharing(true);
+    setStatus("");
+    try {
+      await navigator.share({
+        files: [file],
+        title: "Isabella — 15 Anos",
+        text: "Você é meu convidado! Crie lembranças comigo neste momento especial.",
+      });
+    } catch (error) {
+      if (!(error instanceof DOMException && error.name === "AbortError")) {
+        setStatus("Não foi possível compartilhar. Baixe a imagem e envie pelo WhatsApp.");
+      }
+    } finally {
+      setSharing(false);
+    }
+  }
+
+  return (
+    <div className="shareInvitation">
+      <button
+        type="button"
+        className="confirmButton shareButton"
+        onClick={shareInvitation}
+        disabled={sharing}
+      >
+        <span>{sharing ? "Abrindo..." : "Compartilhar convite"}</span>
+        <b aria-hidden="true">↗</b>
+      </button>
+      <a className="downloadInvitation" href="/convite-isabella.jpg" download="convite-isabella.jpg">
+        Baixar convite
+      </a>
+      <p className="shareStatus" role="status">{status}</p>
     </div>
   );
 }
@@ -140,6 +207,7 @@ export default function Home() {
               <span>Confirmar presença</span>
               <b aria-hidden="true">↗</b>
             </a>
+            {SHOW_PHOTO_SHARING && <ShareInvitation />}
           </div>
         </header>
 
@@ -199,6 +267,7 @@ export default function Home() {
             <b aria-hidden="true">↗</b>
           </a>
           <small>Você será direcionado(a) ao WhatsApp</small>
+          {SHOW_PHOTO_SHARING && <ShareInvitation />}
         </section>
 
         <footer className="footer">
