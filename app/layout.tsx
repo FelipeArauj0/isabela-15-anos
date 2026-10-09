@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Isabela — 15 Anos",
-  description: "Convite digital para a celebração dos 15 anos de Isabela.",
+  title: "Isabella — 15 Anos",
+  description: "Convite digital para a celebração dos 15 anos de Isabella.",
   other: {
     "codex-preview": "development",
   },

@@ -1,6 +1,6 @@
-# Isabela — 15 Anos
+# Isabella — 15 Anos
 
-Convite digital mobile-first criado para a celebração dos 15 anos de Isabela.
+Convite digital mobile-first criado para a celebração dos 15 anos de Isabella.
 
 ## ✨ Experiência
 

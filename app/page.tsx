@@ -84,7 +84,7 @@ export default function Home() {
   );
 
   const confirmationMessage = encodeURIComponent(
-    "Olá! Confirmo minha presença nos 15 anos de Isabela, no dia 15 de novembro às 15h. ✨",
+    "Olá! Confirmo minha presença nos 15 anos de Isabella, no dia 15 de novembro às 15h. ✨",
   );
 
   return (
@@ -121,7 +121,7 @@ export default function Home() {
             <b>✦</b>
             <span />
           </div>
-          <h1>Isabela</h1>
+          <h1>Isabella</h1>
           <p className="subtitle">celebra seus 15 anos</p>
           <p className="invitationText">
             Uma tarde especial está prestes a florescer — e sua presença tornará
