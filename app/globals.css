@@ -175,6 +175,10 @@ h1 {
   line-height: 1.85;
 }
 
+.heroConfirmation {
+  margin-top: 1.5rem;
+}
+
 .envelopeScene {
   position: relative;
   height: 12rem;

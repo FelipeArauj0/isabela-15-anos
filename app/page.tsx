@@ -87,6 +87,8 @@ export default function Home() {
     "Olá! Confirmo minha presença nos 15 anos de Isabella, no dia 15 de novembro às 15h. ✨",
   );
 
+  const confirmationUrl = `https://wa.me/5571988745614?text=${confirmationMessage}`;
+
   return (
     <main className="invitationShell">
       <div className="nightBackdrop" aria-hidden="true" />
@@ -127,6 +129,18 @@ export default function Home() {
             Uma tarde especial está prestes a florescer — e sua presença tornará
             cada instante ainda mais bonito.
           </p>
+          <div className="heroConfirmation">
+            <a
+              className="confirmButton"
+              href={confirmationUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Confirmar presença pelo WhatsApp"
+            >
+              <span>Confirmar presença</span>
+              <b aria-hidden="true">↗</b>
+            </a>
+          </div>
         </header>
 
         <div className="envelopeScene reveal revealTwo" aria-hidden="true">
@@ -176,7 +190,7 @@ export default function Home() {
           <p>Compartilhe conosco a alegria de viver este momento.</p>
           <a
             className="confirmButton"
-            href={`https://wa.me/?text=${confirmationMessage}`}
+            href={confirmationUrl}
             target="_blank"
             rel="noreferrer"
             aria-label="Confirmar presença pelo WhatsApp"
