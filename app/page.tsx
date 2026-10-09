@@ -189,7 +189,7 @@ export default function Home() {
 
         <footer className="footer">
           <span className="footerLine" />
-          <p>Isabela <b>·</b> 15 Anos</p>
+          <p>Isabella <b>·</b> 15 Anos</p>
           <span className="footerLine" />
         </footer>
       </article>
